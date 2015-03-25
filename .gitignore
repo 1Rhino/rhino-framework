@@ -1,0 +1,16 @@
+/rhino/.bundle/
+/rhino/.yardoc
+/rhino/Gemfile.lock
+/rhino/_yardoc/
+/rhino/coverage/
+/rhino/doc/
+/rhino/pkg/
+/rhino/spec/reports/
+/rhino/tmp/
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
+*.swp
+*.gem
