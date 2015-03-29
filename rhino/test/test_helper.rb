@@ -7,4 +7,4 @@ require 'test/unit'
 # $:.unshift File.expand_path(dir)
 # require 'rhino'
 
-require "/home/khanh/projects/ruby-framework/rhino/lib/rhino"
+require File.join(File.dirname(__FILE__), '..') + "/lib/rhino"
