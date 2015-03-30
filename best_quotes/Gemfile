@@ -1,3 +1,11 @@
 source "https://rubygems.org"
 
-gem 'rhino'
+gem 'rhino', path: '../rhino'
+gem 'rack'
+gem 'bundler'
+
+group :development do
+  gem 'rerun'
+end
+
+
