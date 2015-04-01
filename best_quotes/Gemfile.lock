@@ -1,8 +1,9 @@
 PATH
   remote: ../rhino
   specs:
-    rhino (0.0.3)
+    rhino (0.0.4)
       bundler (~> 1.7)
+      erubis
       rake (~> 10.0)
 
 GEM
@@ -10,19 +11,26 @@ GEM
   specs:
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    erubis (2.7.0)
     ffi (1.9.8)
     hitimes (1.2.2)
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    minitest (5.5.1)
+    power_assert (0.2.3)
     rack (1.6.0)
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (10.4.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rerun (0.10.0)
       listen (~> 2.7, >= 2.7.3)
+    test-unit (3.0.9)
+      power_assert
     timers (4.0.1)
       hitimes
 
@@ -31,6 +39,9 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
+  minitest (~> 5.5)
   rack
+  rack-test (~> 0.6)
   rerun
   rhino!
+  test-unit (~> 3.0)

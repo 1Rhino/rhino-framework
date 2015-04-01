@@ -2,6 +2,7 @@ require "rhino/version"
 require "rhino/routing"
 require "rhino/util"
 require "rhino/dependencies"
+require "rhino/controller"
 
 module Rhino
 
@@ -30,17 +31,11 @@ module Rhino
       [500, {'Content-Type' => 'text/html'}, ['Some thing went wrong !']]
     end
 
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
+    def self.root_path
+      "/home/khanh/projects/ruby-framework/best_quotes"
     end
 
   end
+
 
 end

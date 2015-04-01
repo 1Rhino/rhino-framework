@@ -1,10 +1,11 @@
 require 'rack/test'
 require 'test/unit'
 
-## TODO check why these codes not run
 # Alway use the local code first
-# dir = File.join(File.dirname(__FILE__), '..')
-# $:.unshift File.expand_path(dir)
-# require 'rhino'
+dir = File.join(File.dirname(__FILE__), "..", 'lib')
+best_quotes_dir =  File.join(File.dirname(__FILE__), "..", "..", 'best_quotes')
+$LOAD_PATH.unshift File.expand_path(dir)
+$LOAD_PATH.unshift File.expand_path(best_quotes_dir)
 
-require File.join(File.dirname(__FILE__), '..') + "/lib/rhino"
+require 'rhino'
+require 'config/application.rb'
