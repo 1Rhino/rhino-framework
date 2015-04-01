@@ -13,22 +13,22 @@ module Rhino
       controller = klass.new(env)
       text = controller.send(act) rescue (return action_not_found)
       [200, {'Content-Type' => 'text/html'}, [text]]
-    rescue LoadError
-      return error_404
-    rescue # StandardError
-      return error_500
+    rescue LoadError => e
+      return error_404(e)
+    rescue => e # StandardError
+      return error_500(e)
     end
 
-    def error_404
-      [404, {'Content-Type' => 'text/html'}, ['The page not found !']]
+    def error_404(error)
+      [404, {'Content-Type' => 'text/html'}, ["The page not found ! <br/> <b>#{error.message}</b>"]]
     end
 
     def action_not_found
       [404, {'Content-Type' => 'text/html'}, ['The action not found !']]
     end
 
-    def error_500
-      [500, {'Content-Type' => 'text/html'}, ['Some thing went wrong !']]
+    def error_500(error)
+      [500, {'Content-Type' => 'text/html'}, ["Some thing went wrong ! <br/> <b>#{error.message}</b>"]]
     end
 
     def self.root_path

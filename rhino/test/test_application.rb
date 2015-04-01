@@ -1,26 +1,22 @@
 require_relative 'test_helper'
 
-class TestController < Rhino::Controller
-  def index
-    "Hello!"
-  end
-end
-
-class TestApp < Rhino::Application
-  def get_controller_and_action(env)
-    ["TestController", 'index']
-  end
-end
-
 class RhinoAppTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    # BestQuotes::Application.new
-    TestApp.new
+    BestQuotes::Application.new
   end
 
-  def get_action
+  def test_get
+    get '/'
+
+    assert last_response, "404"
+    body = last_response.body
+    assert body["not found"]
+
+  end
+
+  def test_request_post
     get '/quotes/a_quote'
 
     assert last_response.ok?
