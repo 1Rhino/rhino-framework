@@ -3,6 +3,7 @@ require "rhino/routing"
 require "rhino/util"
 require "rhino/dependencies"
 require "rhino/controller"
+require "rhino/file_model"
 
 module Rhino
 
@@ -32,7 +33,7 @@ module Rhino
     end
 
     def self.root_path
-      "/home/khanh/projects/ruby-framework/best_quotes"
+      "/home/khanh/projects/ruby-framework/best_quotes/"
     end
 
   end

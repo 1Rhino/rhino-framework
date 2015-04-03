@@ -4,6 +4,7 @@ PATH
     rhino (0.0.4)
       bundler (~> 1.7)
       erubis
+      multi_json
       rake (~> 10.0)
 
 GEM
@@ -19,6 +20,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     minitest (5.5.1)
+    multi_json (1.11.0)
     power_assert (0.2.3)
     rack (1.6.0)
     rack-test (0.6.3)

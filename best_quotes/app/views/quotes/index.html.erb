@@ -1,0 +1,12 @@
+<h1>All quotes</h1>
+
+<hr />
+<% all_quotes.each do |quote| %>
+<p>
+  <h3>&quot;<%= quote['quote'] %> &quot;</h3>
+  <i>&ndash; <%= quote["attribution"] %></i>
+</p>
+<p> <b><i>Submitted by <%= quote['submitter'] %></i></b> </p>
+<hr />
+<% end %>
+

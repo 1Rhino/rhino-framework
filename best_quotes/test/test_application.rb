@@ -21,7 +21,7 @@ class RhinoAppTest < Test::Unit::TestCase
 
     assert last_response.ok?
     body = last_response.body
-    assert body["Cause and Effect"]
+    assert body["Ben Franklin"]
   end
 
   def test_get_error_400
@@ -36,6 +36,16 @@ class RhinoAppTest < Test::Unit::TestCase
 
     assert_equal last_response.status, 404
     assert last_response.body["action not found"]
+  end
+
+  def get_all_quotes
+    get '/quotes/index'
+
+    assert last_response.ok?
+    body = last_response.body
+    assert body["Ben Franklin"]
+    assert body["Budda"]
+
   end
 
 end

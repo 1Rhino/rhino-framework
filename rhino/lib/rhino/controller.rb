@@ -1,8 +1,11 @@
 require 'erubis'
+require 'rhino/file_model'
 
 module Rhino
 
   class Controller
+    include Rhino::Model
+
     def initialize(env)
       @env = env
     end

@@ -6,4 +6,5 @@ lib_dir =  File.join(File.dirname(__FILE__), "..", "..", 'rhino', 'lib')
 $LOAD_PATH.unshift File.expand_path(lib_dir)
 
 require 'rhino'
+require 'rhino/file_model'
 require '../config/application'
