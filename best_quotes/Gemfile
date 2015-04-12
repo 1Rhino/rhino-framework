@@ -5,6 +5,7 @@ gem 'rack'
 gem 'bundler'
 
 group :development do
+  gem 'thin'
   gem 'rerun'
   gem 'test-unit', '~> 3.0'
   gem 'minitest', '~> 5.5'

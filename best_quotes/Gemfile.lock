@@ -12,7 +12,9 @@ GEM
   specs:
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    daemons (1.1.9)
     erubis (2.7.0)
+    eventmachine (1.0.6)
     ffi (1.9.8)
     hitimes (1.2.2)
     listen (2.10.0)
@@ -33,6 +35,10 @@ GEM
       listen (~> 2.7, >= 2.7.3)
     test-unit (3.0.9)
       power_assert
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
     timers (4.0.1)
       hitimes
 
@@ -47,3 +53,4 @@ DEPENDENCIES
   rerun
   rhino!
   test-unit (~> 3.0)
+  thin

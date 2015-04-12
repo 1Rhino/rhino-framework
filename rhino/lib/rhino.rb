@@ -33,7 +33,7 @@ module Rhino
     end
 
     def self.root_path
-      "/home/khanh/projects/ruby-framework/best_quotes/"
+      "/home/buikhanh/projects/my_projects/ruby-framework/best_quotes/"
     end
 
   end
