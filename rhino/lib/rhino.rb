@@ -4,6 +4,7 @@ require "rhino/util"
 require "rhino/dependencies"
 require "rhino/controller"
 require "rhino/file_model"
+require "pry"
 
 module Rhino
 

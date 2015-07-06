@@ -14,6 +14,14 @@ module Rhino
       @env
     end
 
+    def request
+      @request ||= Rack::Request.new(@env)
+    end
+
+    def params
+      request.params
+    end
+
     def render(view_name, locals={})
       file_name = File.join Rhino::Application.root_path, 'app', 'views', controller_name, "#{view_name}.html.erb"
       template = File.read file_name

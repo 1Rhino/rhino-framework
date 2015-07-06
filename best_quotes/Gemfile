@@ -10,6 +10,7 @@ group :development do
   gem 'test-unit', '~> 3.0'
   gem 'minitest', '~> 5.5'
   gem 'rack-test', '~> 0.6'
+  gem 'pry'
 end
 
 

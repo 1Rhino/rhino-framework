@@ -1,4 +1,4 @@
-class QuotesController < Rhino::Controller
+class QuotesController < ::Rhino::Controller
 
   def index
     all_quotes = FileModel.all
@@ -7,7 +7,14 @@ class QuotesController < Rhino::Controller
 
   def a_quote
     quote_1 = FileModel.find(1)
-    render :a_quote, quote: quote_1
+    user_agent = request.user_agent
+    render :a_quote, quote: quote_1, user_agent: user_agent
+  end
+
+  def show
+    quote = FileModel.find(params["id"])
+    user_agent = request.user_agent
+    render :a_quote, quote: quote, user_agent: user_agent
   end
 
 end
