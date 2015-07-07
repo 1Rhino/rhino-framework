@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'rhino/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rhino"
+  spec.name          = "rhino-framework"
   spec.version       = Rhino::VERSION
   spec.authors       = ["rhino"]
   spec.email         = ["18hino@gmail.com"]
