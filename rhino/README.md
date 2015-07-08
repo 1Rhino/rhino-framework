@@ -7,16 +7,18 @@ This is a small Ruby Web Framework. Rails-like framework.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rhino'
+gem 'rhino-framework'
 ```
 
 And then execute:
-
-    $ bundle
+```ruby
+$ bundle
+```
 
 Or install it yourself as:
-
-    $ gem install rhino
+```ruby
+$ gem install rhino-framework
+```
 
 ## Contributing
 

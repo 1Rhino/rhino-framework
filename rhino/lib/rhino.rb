@@ -13,7 +13,7 @@ module Rhino
     def call(env)
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
-      text = controller.send(act) rescue (return action_not_found)
+      text = controller.send(act) #rescue (return action_not_found)
       [200, {'Content-Type' => 'text/html'}, [text]]
     rescue LoadError => e
       return error_404(e)
@@ -34,7 +34,7 @@ module Rhino
     end
 
     def self.root_path
-      "/home/buikhanh/projects/my_projects/ruby-framework/best_quotes/"
+      "/home/khanhbq/projects/ruby-framework/best_quotes"
     end
 
   end

@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'rhino', path: '../rhino'
+gem 'rhino-framework', path: '../rhino'
 gem 'rack'
 gem 'bundler'
 
