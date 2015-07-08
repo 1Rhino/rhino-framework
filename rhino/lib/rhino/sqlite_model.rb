@@ -23,27 +23,59 @@ module Rhino
         end
       end
 
+      def self.find(id)
+        row = DB.execute("
+          SELECT #{schema.keys.join(',')} from #{table} where id = #{id};
+        ")
+        data = Hash[schema.keys.zip row[0]]
+        self.new data
+      end
+
+      def [](name)
+        @hash[name.to_s]
+      end
+
+      def []=(name, value)
+        @hash[name.to_s] = value
+      end
+
       def self.create(values)
         values.delete "id"
         keys = schema.keys - ['id']
         vals =  keys.map do |key|
-          values[keys] ? to_sql(values[keys]) : "NULL"
+          values[key] ? to_sql(values[key]) : "NULL"
         end
-
-        DB.execute  <<SQL
-          "INSERT INTO #{table} (#{keys.join ","}) VALUES"
-        SQL
+        DB.execute "INSERT INTO #{table} (#{keys.join ","}) VALUES (#{vals.join ","});"
 
         data = Hash[keys.zip vals]
-        sql = " SELECT last_insert_rowid();"
+        sql = "SELECT last_insert_rowid();"
         data["id"] = DB.execute(sql)[0][0]
         self.new data
       end
 
+      def save!
+        unless @hash["id"]
+          self.class.create
+          return true
+        end
+        fields = @hash.map do |k,v|
+          "#{k}=#{self.class.to_sql(v)}"
+        end.join(",")
+
+        DB.execute ("
+          UPDATE #{self.class.table}
+          SET #{fields}
+          WHERE id = #{@hash['id']}
+        ")
+        true
+      end
+
+      def save
+        self.save!  rescue false
+      end
+
       def self.count
-        DB.execute (<<SQL)[0][0]
-          SELECT COUNT(*) FROM #{table}
-        SQL
+        DB.execute("SELECT COUNT(*) FROM #{table}")[0][0]
       end
 
       def self.table
