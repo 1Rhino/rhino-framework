@@ -11,6 +11,10 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
@@ -55,6 +59,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
   bundler
   minitest (~> 5.5)
   pry

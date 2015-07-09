@@ -11,9 +11,11 @@ module Rhino
   class Application
 
     def call(env)
-      klass, act = get_controller_and_action(env)
-      controller = klass.new(env)
-      rack_app = klass.action(act)
+      if env['PATH_INFO'] == '/favicon.ico'
+        return [404,
+          {'Content-Type' => 'text/html'}, []]
+      end
+      rack_app = get_rack_app(env)
       rack_app.call(env)
     end
 
@@ -30,7 +32,7 @@ module Rhino
     end
 
     def self.root_path
-      "/home/khanhbq/projects/ruby-framework/best_quotes"
+      "/home/buikhanh/projects/my_projects/ruby-framework/best_quotes"
     end
 
   end

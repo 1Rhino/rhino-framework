@@ -34,6 +34,16 @@ module Rhino
       @request ||= Rack::Request.new(@env)
     end
 
+    def response(text, status=200, headers = {})
+      raise "Already responded!" if @response
+      a = [text].flatten
+      @response = Rack::Response.new(a, status, headers)
+    end
+
+    def get_response
+      @response
+    end
+
     def params
       request.params.merge(@routing_params)
     end
