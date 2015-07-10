@@ -4,6 +4,7 @@ require "rhino/util"
 require "rhino/dependencies"
 require "rhino/controller"
 require "rhino/file_model"
+require "rhino/sqlite_model"
 require "pry"
 
 module Rhino
@@ -19,23 +20,5 @@ module Rhino
       rack_app.call(env)
     end
 
-    def error_404(error)
-      [404, {'Content-Type' => 'text/html'}, ["The page not found ! <br/> <b>#{error.message}</b>"]]
-    end
-
-    def action_not_found
-      [404, {'Content-Type' => 'text/html'}, ['The action not found !']]
-    end
-
-    def error_500(error)
-      [500, {'Content-Type' => 'text/html'}, ["Some thing went wrong ! <br/> <b>#{error.message}</b>"]]
-    end
-
-    def self.root_path
-      "/home/buikhanh/projects/my_projects/ruby-framework/best_quotes"
-    end
-
   end
-
-
 end

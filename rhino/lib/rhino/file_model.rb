@@ -22,13 +22,13 @@ module Rhino
       end
 
       def self.find(id)
-        FileModel.new(Rhino::Application.root_path + "/db/quotes/#{id}.json")
+        FileModel.new("db/quotes/#{id}.json")
       rescue
         nil
       end
 
       def self.all
-        files = Dir[Rhino::Application.root_path + '/db/quotes/*.json']
+        files = Dir['db/quotes/*.json']
         files.map{|f| FileModel.new f}.select{|x| !x.nil? }
       end
 

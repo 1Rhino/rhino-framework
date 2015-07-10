@@ -4,8 +4,8 @@ conn = SQLite3::Database.new 'db/database.db'
 conn.execute  <<SQL
   create table quotes(
     id INTEGER PRIMARY KEY,
-    posted INTEGER,
-    title VARCHAR(100),
-    body VARCHAR(32000)
+    submitter VARCHAR(100),
+    attribution VARCHAR(100),
+    quote VARCHAR(10000)
   )
 SQL

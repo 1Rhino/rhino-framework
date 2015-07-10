@@ -49,7 +49,7 @@ module Rhino
     end
 
     def render(view_name, locals={})
-      file_name = File.join Rhino::Application.root_path, 'app', 'views', controller_name, "#{view_name}.html.erb"
+      file_name = File.join 'app', 'views', controller_name, "#{view_name}.html.erb"
       template = File.read file_name
       eruby = Erubis::Eruby.new(template)
       eruby.result locals.merge(env: env)
