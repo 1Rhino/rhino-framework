@@ -1,7 +1,7 @@
 PATH
   remote: ../rhino
   specs:
-    rhino-framework (0.0.4)
+    rhino-framework (0.1.0)
       bundler (~> 1.7)
       erubis
       multi_json

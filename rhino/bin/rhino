@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'rhino/cli'
+Rhino::Cli.start

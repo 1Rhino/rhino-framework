@@ -2,7 +2,7 @@ require 'sqlite3'
 require 'rhino/util'
 require 'pry'
 
-DB = SQLite3::Database.new 'test.db'
+DB = SQLite3::Database.new 'db/database.db'
 
 module Rhino
   module Model
@@ -27,8 +27,12 @@ module Rhino
         row = DB.execute("
           SELECT #{schema.keys.join(',')} from #{table} where id = #{id};
         ")
-        data = Hash[schema.keys.zip row[0]]
-        self.new data
+        mapping_data row[0]
+      end
+
+      def self.all
+        rows = DB.execute("SELECT #{schema.keys.join(',')} from #{table};")
+        rows.map {|row| mapping_data row }
       end
 
       def [](name)
@@ -37,6 +41,10 @@ module Rhino
 
       def []=(name, value)
         @hash[name.to_s] = value
+      end
+
+      def self.mapping_data(row_data)
+        self.new Hash[schema.keys.zip row_data]
       end
 
       def self.create(values)

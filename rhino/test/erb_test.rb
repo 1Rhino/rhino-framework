@@ -8,4 +8,4 @@ TEMPLATE
 eruby = Erubis::Eruby.new(template)
 puts eruby.src
 puts "========="
-puts eruby.result(some_thing: "Xicaloa")
+puts eruby.result(some_thing: "Hello world")
