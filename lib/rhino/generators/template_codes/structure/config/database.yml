@@ -1,0 +1,6 @@
+# default using sqlite3 for database
+# please install sqlite3 server first
+
+database:
+  name: database.db
+

@@ -1,0 +1,17 @@
+require './config/application'
+
+app = {{app_name}}::Application.new
+
+use Rack::ContentType
+
+app.route do
+  # default routes
+  match "", proc { [200, {}, ["Congratulation! You're running a application based on Rhino-Framework"]] }
+  match ":controller/:id/:action"
+  match ":controller/:id",
+    :default => { "action" => "show" }
+  match ":controller",
+    :default => { "action" => "index" }
+end
+
+run app
