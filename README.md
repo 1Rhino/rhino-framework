@@ -1,7 +1,8 @@
 # Rhino
 
 This is a small Rack-based Ruby Web Framework.
-I created it for **Learning Ruby** and for **Fun**
+I created it for **Learning Ruby** and for **Fun**.
+Inspired and learn from book **Rebuilding Rails** of **Noah Gibbs**
 
 ## Installation
 
@@ -19,4 +20,5 @@ $ bundle install
 $ rackup -p 6789
 ```
 
-### I'm creating Wiki How to work with Rhino-Framework
+##### Please visit: https://github.com/1Rhino/best_quotes to see demo app
+#### I'm creating Wiki How to work with Rhino-Framework
