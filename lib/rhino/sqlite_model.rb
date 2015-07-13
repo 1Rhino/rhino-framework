@@ -9,7 +9,7 @@ module Rhino
   module Model
     class SQLite
 
-      def initialize(data = nil)
+      def initialize(data = {})
         @hash = data
       end
 
@@ -64,7 +64,7 @@ module Rhino
 
       def save!
         unless @hash["id"]
-          self.class.create
+          self.class.create @hash
           return true
         end
         fields = @hash.map do |k,v|
@@ -81,6 +81,11 @@ module Rhino
 
       def save
         self.save!  rescue false
+      end
+
+      def self.delete(id)
+        DB.execute("DELETE FROM #{table} WHERE id = #{id.to_i}")
+        true
       end
 
       def self.count
